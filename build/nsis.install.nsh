@@ -3,9 +3,9 @@ InstallDir "$InstDir"
 OutFile "${OUTPUTFILE}" # set through command line arguments
 
 # Links for "Add/Remove Programs"
-!define HELPURL "https://github.com/expanse-org/go-expanse/issues"
-!define UPDATEURL "https://github.com/expanse-org/go-expanse/releases"
-!define ABOUTURL "https://github.com/expanse-org/go-expanse#expanse-go"
+!define HELPURL "https://github.com/offsetcoin/OFFSETCOIN/issues"
+!define UPDATEURL "https://github.com/offsetcoin/OFFSETCOIN/releases"
+!define ABOUTURL "https://github.com/offsetcoin/OFFSETCOIN#expanse-go"
 !define /date NOW "%Y%m%d"
 
 PageEx license

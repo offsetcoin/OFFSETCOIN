@@ -5,8 +5,8 @@ Maintainer: {{.Author}}
 Build-Depends: debhelper (>= 8.0.0), {{.GoBootPackage}}
 Standards-Version: 3.9.5
 Homepage: https://expanse.tech
-Vcs-Git: git://github.com/expanse-org/go-expanse.git
-Vcs-Browser: https://github.com/expanse-org/go-expanse
+Vcs-Git: git://github.com/offsetcoin/OFFSETCOIN.git
+Vcs-Browser: https://github.com/offsetcoin/OFFSETCOIN
 
 Package: {{.Name}}
 Architecture: any

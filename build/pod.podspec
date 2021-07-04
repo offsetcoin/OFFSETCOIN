@@ -2,12 +2,12 @@ Pod::Spec.new do |spec|
   spec.name         = 'Gosc'
   spec.version      = '{{.Version}}'
   spec.license      = { :type => 'GNU Lesser General Public License, Version 3.0' }
-  spec.homepage     = 'https://github.com/expanse-org/go-expanse'
+  spec.homepage     = 'https://github.com/offsetcoin/OFFSETCOIN'
   spec.authors      = { {{range .Contributors}}
 		'{{.Name}}' => '{{.Email}}',{{end}}
 	}
   spec.summary      = 'iOS Expanse Client'
-  spec.source       = { :git => 'https://github.com/expanse-org/go-expanse.git', :commit => '{{.Commit}}' }
+  spec.source       = { :git => 'https://github.com/offsetcoin/OFFSETCOIN.git', :commit => '{{.Commit}}' }
 
 	spec.platform = :ios
   spec.ios.deployment_target  = '9.0'

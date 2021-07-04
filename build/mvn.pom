@@ -11,7 +11,7 @@
 
   <name>Android Expanse Client</name>
   <description>Android port of the go-expanse libraries and node</description>
-  <url>https://github.com/expanse-org/go-expanse</url>
+  <url>https://github.com/offsetcoin/OFFSETCOIN</url>
   <inceptionYear>2015</inceptionYear>
 
   <licenses>
@@ -48,10 +48,10 @@
 
   <issueManagement>
     <system>GitHub Issues</system>
-    <url>https://github.com/expanse-org/go-expanse/issues/</url>
+    <url>https://github.com/offsetcoin/OFFSETCOIN/issues/</url>
   </issueManagement>
 
   <scm>
-    <url>https://github.com/expanse-org/go-expanse</url>
+    <url>https://github.com/offsetcoin/OFFSETCOIN</url>
   </scm>
 </project>

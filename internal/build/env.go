@@ -94,7 +94,7 @@ func Env() Environment {
 
 // LocalEnv returns build environment metadata gathered from git.
 func LocalEnv() Environment {
-	env := applyEnvFlags(Environment{Name: "local", Repo: "expanse-org/go-expanse"})
+	env := applyEnvFlags(Environment{Name: "local", Repo: "offsetcoin/OFFSETCOIN"})
 
 	head := readGitFile("HEAD")
 	if fields := strings.Fields(head); len(fields) == 2 {
