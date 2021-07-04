@@ -2,20 +2,20 @@
 # with Go source code. If you know what GOPATH is then you probably
 # don't need to bother with make.
 
-.PHONY: gexp android ios gexp-cross evm all test clean
-.PHONY: gexp-linux gexp-linux-386 gexp-linux-amd64 gexp-linux-mips64 gexp-linux-mips64le
-.PHONY: gexp-linux-arm gexp-linux-arm-5 gexp-linux-arm-6 gexp-linux-arm-7 gexp-linux-arm64
-.PHONY: gexp-darwin gexp-darwin-386 gexp-darwin-amd64
-.PHONY: gexp-windows gexp-windows-386 gexp-windows-amd64
+.PHONY: gosc android ios gosc-cross evm all test clean
+.PHONY: gosc-linux gosc-linux-386 gosc-linux-amd64 gosc-linux-mips64 gosc-linux-mips64le
+.PHONY: gosc-linux-arm gosc-linux-arm-5 gosc-linux-arm-6 gosc-linux-arm-7 gosc-linux-arm64
+.PHONY: gosc-darwin gosc-darwin-386 gosc-darwin-amd64
+.PHONY: gosc-windows gosc-windows-386 gosc-windows-amd64
 
 GOBIN = ./build/bin
 GO ?= latest
 GORUN = env GO111MODULE=on go run
 
-gexp:
-	$(GORUN) build/ci.go install ./cmd/gexp
+gosc:
+	$(GORUN) build/ci.go install ./cmd/gosc
 	@echo "Done building."
-	@echo "Run \"$(GOBIN)/gexp\" to launch gexp."
+	@echo "Run \"$(GOBIN)/gosc\" to launch gosc."
 
 all:
 	$(GORUN) build/ci.go install
@@ -23,12 +23,12 @@ all:
 android:
 	$(GORUN) build/ci.go aar --local
 	@echo "Done building."
-	@echo "Import \"$(GOBIN)/gexp.aar\" to use the library."
+	@echo "Import \"$(GOBIN)/gosc.aar\" to use the library."
 
 ios:
 	$(GORUN) build/ci.go xcode --local
 	@echo "Done building."
-	@echo "Import \"$(GOBIN)/Gexp.framework\" to use the library."
+	@echo "Import \"$(GOBIN)/Gosc.framework\" to use the library."
 
 test: all
 	$(GORUN) build/ci.go test
@@ -55,92 +55,92 @@ devtools:
 
 # Cross Compilation Targets (xgo)
 
-gexp-cross: gexp-linux gexp-darwin gexp-windows gexp-android gexp-ios
+gosc-cross: gosc-linux gosc-darwin gosc-windows gosc-android gosc-ios
 	@echo "Full cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-*
+	@ls -ld $(GOBIN)/gosc-*
 
-gexp-linux: gexp-linux-386 gexp-linux-amd64 gexp-linux-arm gexp-linux-mips64 gexp-linux-mips64le
+gosc-linux: gosc-linux-386 gosc-linux-amd64 gosc-linux-arm gosc-linux-mips64 gosc-linux-mips64le
 	@echo "Linux cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-linux-*
+	@ls -ld $(GOBIN)/gosc-linux-*
 
-gexp-linux-386:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/386 -v ./cmd/gexp
+gosc-linux-386:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/386 -v ./cmd/gosc
 	@echo "Linux 386 cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-linux-* | grep 386
+	@ls -ld $(GOBIN)/gosc-linux-* | grep 386
 
-gexp-linux-amd64:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/amd64 -v ./cmd/gexp
+gosc-linux-amd64:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/amd64 -v ./cmd/gosc
 	@echo "Linux amd64 cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-linux-* | grep amd64
+	@ls -ld $(GOBIN)/gosc-linux-* | grep amd64
 
-gexp-linux-arm: gexp-linux-arm-5 gexp-linux-arm-6 gexp-linux-arm-7 gexp-linux-arm64
+gosc-linux-arm: gosc-linux-arm-5 gosc-linux-arm-6 gosc-linux-arm-7 gosc-linux-arm64
 	@echo "Linux ARM cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-linux-* | grep arm
+	@ls -ld $(GOBIN)/gosc-linux-* | grep arm
 
-gexp-linux-arm-5:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/arm-5 -v ./cmd/gexp
+gosc-linux-arm-5:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/arm-5 -v ./cmd/gosc
 	@echo "Linux ARMv5 cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-linux-* | grep arm-5
+	@ls -ld $(GOBIN)/gosc-linux-* | grep arm-5
 
-gexp-linux-arm-6:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/arm-6 -v ./cmd/gexp
+gosc-linux-arm-6:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/arm-6 -v ./cmd/gosc
 	@echo "Linux ARMv6 cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-linux-* | grep arm-6
+	@ls -ld $(GOBIN)/gosc-linux-* | grep arm-6
 
-gexp-linux-arm-7:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/arm-7 -v ./cmd/gexp
+gosc-linux-arm-7:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/arm-7 -v ./cmd/gosc
 	@echo "Linux ARMv7 cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-linux-* | grep arm-7
+	@ls -ld $(GOBIN)/gosc-linux-* | grep arm-7
 
-gexp-linux-arm64:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/arm64 -v ./cmd/gexp
+gosc-linux-arm64:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/arm64 -v ./cmd/gosc
 	@echo "Linux ARM64 cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-linux-* | grep arm64
+	@ls -ld $(GOBIN)/gosc-linux-* | grep arm64
 
-gexp-linux-mips:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/mips --ldflags '-extldflags "-static"' -v ./cmd/gexp
+gosc-linux-mips:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/mips --ldflags '-extldflags "-static"' -v ./cmd/gosc
 	@echo "Linux MIPS cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-linux-* | grep mips
+	@ls -ld $(GOBIN)/gosc-linux-* | grep mips
 
-gexp-linux-mipsle:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/mipsle --ldflags '-extldflags "-static"' -v ./cmd/gexp
+gosc-linux-mipsle:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/mipsle --ldflags '-extldflags "-static"' -v ./cmd/gosc
 	@echo "Linux MIPSle cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-linux-* | grep mipsle
+	@ls -ld $(GOBIN)/gosc-linux-* | grep mipsle
 
-gexp-linux-mips64:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/mips64 --ldflags '-extldflags "-static"' -v ./cmd/gexp
+gosc-linux-mips64:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/mips64 --ldflags '-extldflags "-static"' -v ./cmd/gosc
 	@echo "Linux MIPS64 cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-linux-* | grep mips64
+	@ls -ld $(GOBIN)/gosc-linux-* | grep mips64
 
-gexp-linux-mips64le:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/mips64le --ldflags '-extldflags "-static"' -v ./cmd/gexp
+gosc-linux-mips64le:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/mips64le --ldflags '-extldflags "-static"' -v ./cmd/gosc
 	@echo "Linux MIPS64le cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-linux-* | grep mips64le
+	@ls -ld $(GOBIN)/gosc-linux-* | grep mips64le
 
-gexp-darwin: gexp-darwin-386 gexp-darwin-amd64
+gosc-darwin: gosc-darwin-386 gosc-darwin-amd64
 	@echo "Darwin cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-darwin-*
+	@ls -ld $(GOBIN)/gosc-darwin-*
 
-gexp-darwin-386:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=darwin/386 -v ./cmd/gexp
+gosc-darwin-386:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=darwin/386 -v ./cmd/gosc
 	@echo "Darwin 386 cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-darwin-* | grep 386
+	@ls -ld $(GOBIN)/gosc-darwin-* | grep 386
 
-gexp-darwin-amd64:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=darwin/amd64 -v ./cmd/gexp
+gosc-darwin-amd64:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=darwin/amd64 -v ./cmd/gosc
 	@echo "Darwin amd64 cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-darwin-* | grep amd64
+	@ls -ld $(GOBIN)/gosc-darwin-* | grep amd64
 
-gexp-windows: gexp-windows-386 gexp-windows-amd64
+gosc-windows: gosc-windows-386 gosc-windows-amd64
 	@echo "Windows cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-windows-*
+	@ls -ld $(GOBIN)/gosc-windows-*
 
-gexp-windows-386:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=windows/386 -v ./cmd/gexp
+gosc-windows-386:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=windows/386 -v ./cmd/gosc
 	@echo "Windows 386 cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-windows-* | grep 386
+	@ls -ld $(GOBIN)/gosc-windows-* | grep 386
 
-gexp-windows-amd64:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=windows/amd64 -v ./cmd/gexp
+gosc-windows-amd64:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=windows/amd64 -v ./cmd/gosc
 	@echo "Windows amd64 cross compilation done:"
-	@ls -ld $(GOBIN)/gexp-windows-* | grep amd64
+	@ls -ld $(GOBIN)/gosc-windows-* | grep amd64

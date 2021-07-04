@@ -1,4 +1,4 @@
-Name "gexp ${MAJORVERSION}.${MINORVERSION}.${BUILDVERSION}" # VERSION variables set through command line arguments
+Name "gosc ${MAJORVERSION}.${MINORVERSION}.${BUILDVERSION}" # VERSION variables set through command line arguments
 InstallDir "$InstDir"
 OutFile "${OUTPUTFILE}" # set through command line arguments
 
@@ -12,30 +12,30 @@ PageEx license
   LicenseData {{.License}}
 PageExEnd
 
-# Install gexp binary
-Section "Gexp" GETH_IDX
+# Install gosc binary
+Section "Gosc" GETH_IDX
   SetOutPath $INSTDIR
-  file {{.Gexp}}
+  file {{.Gosc}}
 
   # Create start menu launcher
   createDirectory "$SMPROGRAMS\${APPNAME}"
-  createShortCut "$SMPROGRAMS\${APPNAME}\${APPNAME}.lnk" "$INSTDIR\gexp.exe" "--fast" "--cache=512"
-  createShortCut "$SMPROGRAMS\${APPNAME}\Attach.lnk" "$INSTDIR\gexp.exe" "attach" "" ""
+  createShortCut "$SMPROGRAMS\${APPNAME}\${APPNAME}.lnk" "$INSTDIR\gosc.exe" "--fast" "--cache=512"
+  createShortCut "$SMPROGRAMS\${APPNAME}\Attach.lnk" "$INSTDIR\gosc.exe" "attach" "" ""
   createShortCut "$SMPROGRAMS\${APPNAME}\Uninstall.lnk" "$INSTDIR\uninstall.exe" "" "" ""
 
   # Firewall - remove rules (if exists)
-  SimpleFC::AdvRemoveRule "Gexp incoming peers (TCP:42786)"
-  SimpleFC::AdvRemoveRule "Gexp outgoing peers (TCP:42786)"
-  SimpleFC::AdvRemoveRule "Gexp UDP discovery (UDP:42786)"
+  SimpleFC::AdvRemoveRule "Gosc incoming peers (TCP:42786)"
+  SimpleFC::AdvRemoveRule "Gosc outgoing peers (TCP:42786)"
+  SimpleFC::AdvRemoveRule "Gosc UDP discovery (UDP:42786)"
 
   # Firewall - add rules
-  SimpleFC::AdvAddRule "Gexp incoming peers (TCP:42786)" ""  6 1 1 2147483647 1 "$INSTDIR\gexp.exe" "" "" "Expanse" 42786 "" "" ""
-  SimpleFC::AdvAddRule "Gexp outgoing peers (TCP:42786)" ""  6 2 1 2147483647 1 "$INSTDIR\gexp.exe" "" "" "Expanse" "" 42786 "" ""
-  SimpleFC::AdvAddRule "Gexp UDP discovery (UDP:42786)" "" 17 2 1 2147483647 1 "$INSTDIR\gexp.exe" "" "" "Expanse" "" 42786 "" ""
+  SimpleFC::AdvAddRule "Gosc incoming peers (TCP:42786)" ""  6 1 1 2147483647 1 "$INSTDIR\gosc.exe" "" "" "Expanse" 42786 "" "" ""
+  SimpleFC::AdvAddRule "Gosc outgoing peers (TCP:42786)" ""  6 2 1 2147483647 1 "$INSTDIR\gosc.exe" "" "" "Expanse" "" 42786 "" ""
+  SimpleFC::AdvAddRule "Gosc UDP discovery (UDP:42786)" "" 17 2 1 2147483647 1 "$INSTDIR\gosc.exe" "" "" "Expanse" "" 42786 "" ""
 
   # Set default IPC endpoint (https://github.com/expanse-org/EIPs/issues/147)
-  ${EnvVarUpdate} $0 "ETHEREUM_SOCKET" "R" "HKLM" "\\.\pipe\gexp.ipc"
-  ${EnvVarUpdate} $0 "ETHEREUM_SOCKET" "A" "HKLM" "\\.\pipe\gexp.ipc"
+  ${EnvVarUpdate} $0 "ETHEREUM_SOCKET" "R" "HKLM" "\\.\pipe\gosc.ipc"
+  ${EnvVarUpdate} $0 "ETHEREUM_SOCKET" "A" "HKLM" "\\.\pipe\gosc.ipc"
 
   # Add instdir to PATH
   Push "$INSTDIR"

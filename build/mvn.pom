@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.expanse</groupId>
-  <artifactId>gexp</artifactId>
+  <artifactId>gosc</artifactId>
   <version>{{.Version}}</version>
   <packaging>aar</packaging>
 

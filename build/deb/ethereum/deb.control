@@ -11,8 +11,8 @@ Vcs-Browser: https://github.com/expanse-org/go-expanse
 Package: {{.Name}}
 Architecture: any
 Depends: ${misc:Depends}, {{.ExeList}}
-Description: Meta-package to install gexp and other tools
- Meta-package to install gexp and other tools
+Description: Meta-package to install gosc and other tools
+ Meta-package to install gosc and other tools
 
 {{range .Executables}}
 Package: {{$.ExeName .}}

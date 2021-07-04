@@ -17,12 +17,12 @@ Section "Uninstall"
   rmDir "$SMPROGRAMS\${APPNAME}"
 
   # Firewall - remove rules if exists
-  SimpleFC::AdvRemoveRule "Gexp incoming peers (TCP:42786)"
-  SimpleFC::AdvRemoveRule "Gexp outgoing peers (TCP:42786)"
-  SimpleFC::AdvRemoveRule "Gexp UDP discovery (UDP:42786)"
+  SimpleFC::AdvRemoveRule "Gosc incoming peers (TCP:42786)"
+  SimpleFC::AdvRemoveRule "Gosc outgoing peers (TCP:42786)"
+  SimpleFC::AdvRemoveRule "Gosc UDP discovery (UDP:42786)"
 
   # Remove IPC endpoint (https://github.com/expanse-org/EIPs/issues/147)
-  ${un.EnvVarUpdate} $0 "ETHEREUM_SOCKET" "R" "HKLM" "\\.\pipe\gexp.ipc"
+  ${un.EnvVarUpdate} $0 "ETHEREUM_SOCKET" "R" "HKLM" "\\.\pipe\gosc.ipc"
 
   # Remove install directory from PATH
   Push "$INSTDIR"
