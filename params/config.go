@@ -27,7 +27,7 @@ import (
 
 // Genesis hashes to enforce below configs on.
 var (
-	MainnetGenesisHash = common.HexToHash("0x5abf244fd65f75f770beb3df1f30e29102dac2b89a1c7eceede2780f54e06f6a") // Mainnet genesis hash to enforce below configs on
+	MainnetGenesisHash = common.HexToHash("0x4d3aa83e73d2dbdb30570460cbe76f1080af4e72a8ae75157b36ada8fe8b9518") // Mainnet genesis hash to enforce below configs on
 	TestnetGenesisHash = common.HexToHash("0x41941023680923e0fe4d74a34bdac8141f2540e3ae90623718e47d66d1ca4a2d") // Testnet genesis hash to enforce below configs on
 	RinkebyGenesisHash = common.HexToHash("0x6341fd3daf94b748c72ced5a5b26028f2474f5f00d824504e4fa37a75767e177")
 	GoerliGenesisHash  = common.HexToHash("0xbf7e331f7f7c1dd2e05159666b3bf8bc7a8a3a9eb1d518969eab529dd9b88c1a")
@@ -59,7 +59,7 @@ var (
 		DAOForkBlock:        nil,
 		DAOForkSupport:      false,
 		EIP150Block:         big.NewInt(0),
-		EIP150Hash:          common.HexToHash("0x5abf244fd65f75f770beb3df1f30e29102dac2b89a1c7eceede2780f54e06f6a"),
+		EIP150Hash:          common.HexToHash("0x4d3aa83e73d2dbdb30570460cbe76f1080af4e72a8ae75157b36ada8fe8b9518"),
 		EIP155Block:         big.NewInt(0),
 		EIP158Block:         big.NewInt(0),
 		ByzantiumBlock:      big.NewInt(0),
@@ -77,9 +77,9 @@ var (
 	// MainnetTrustedCheckpoint contains the light client trusted checkpoint for the main network.
 	MainnetTrustedCheckpoint = &TrustedCheckpoint{
 		SectionIndex: 89,
-		SectionHead:  common.HexToHash("0x5abf244fd65f75f770beb3df1f30e29102dac2b89a1c7eceede2780f54e06f6a"),
-		CHTRoot:      common.HexToHash("0x5abf244fd65f75f770beb3df1f30e29102dac2b89a1c7eceede2780f54e06f6a"),
-		BloomRoot:    common.HexToHash("0x5abf244fd65f75f770beb3df1f30e29102dac2b89a1c7eceede2780f54e06f6a"),
+		SectionHead:  common.HexToHash("0x4d3aa83e73d2dbdb30570460cbe76f1080af4e72a8ae75157b36ada8fe8b9518"),
+		CHTRoot:      common.HexToHash("0x4d3aa83e73d2dbdb30570460cbe76f1080af4e72a8ae75157b36ada8fe8b9518"),
+		BloomRoot:    common.HexToHash("0x4d3aa83e73d2dbdb30570460cbe76f1080af4e72a8ae75157b36ada8fe8b9518"),
 	}
 
 	// MainnetCheckpointOracle contains a set of configs for the main network oracle.
