@@ -54,7 +54,7 @@ var CheckpointOracles = map[common.Hash]*CheckpointOracleConfig{
 var (
 	// MainnetChainConfig is the chain parameters to run a node on the main network.
 	MainnetChainConfig = &ChainConfig{
-		ChainID:             big.NewInt(547),
+		ChainID:             big.NewInt(442),
 		HomesteadBlock:      big.NewInt(0),
 		DAOForkBlock:        nil,
 		DAOForkSupport:      false,
@@ -84,9 +84,9 @@ var (
 
 	// MainnetCheckpointOracle contains a set of configs for the main network oracle.
 	MainnetCheckpointOracle = &CheckpointOracleConfig{
-		Address: common.HexToAddress("0xf4D19514a280c0d13e3d29f99DE11d35c54cCf25"),
+		Address: common.HexToAddress("0xD3876313e812A6255c7Fc236db33075290cFC526"),
 		Signers: []common.Address{
-			common.HexToAddress("0xf4D19514a280c0d13e3d29f99DE11d35c54cCf25"), // osc-org
+			common.HexToAddress("0xD3876313e812A6255c7Fc236db33075290cFC526"), // osc-org
 		},
 		Threshold: 1,
 	}
