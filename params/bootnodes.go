@@ -20,8 +20,8 @@ package params
 // the main Ethereum network.
 var MainnetBootnodes = []string{
 	// Parity node
-	"enode://e937478f6688bcc790c2cbe1a95f9bf5d5b6d8b856a11e2d7fde4658c02fcd188e2c88b7585f2672593f9b909e5b271f864e2e249354e8c567054ec7b4149faa@8.12.17.160:42786",
-	"enode://14c8707c69d27465f31d20819b33e98b7f4aabe683b0cc741d3ae49e16fc1daf8854ad321ebc4b8de8fe8a20ff8179bfa9fa670fc5d0c714e617343a1c7b821c@45.32.64.87:42786",
+	"enode://324e619056c1e64658a80b1cb20ce0f56ac5598afae547a507aaf7bb01f416b2740697615f16b67bd6396413e0fe0db8392a7c4e77b5267a4ba5adffc4d6739e@8.12.17.160:42786",
+	"enode://dfc71fc763fa2f402742107daa853a3c47af143eb535989958776fd235f3769a3b3d03feaa173f1aeec3f2fd59e5b5257d6224a61dc0c466f5d489a26e228dd4@45.32.64.87:42786",
 }
 
 // TestnetBootnodes are the enode URLs of the P2P bootstrap nodes running on the
